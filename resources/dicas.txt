@@ -1,0 +1,63 @@
+Para esta prova vocês poderão precisar das seguintes linhas de
+código, onde deverão saber encaixar no(s) programa(s) que desenvolver.
+
+
+@Entity
+@Id
+@GeneratedValue
+
+implements EventHandler
+
+static EntityManager em = DBConnection.getInstance().getEm();
+
+@NamedQuery(name="Cliente.findByString", 
+query="SELECT c FROM Cliente c WHERE c.nome = :param OR c.email = :param")
+
+launch();
+
+BorderPane raiz = new BorderPane();
+VBox raiz = new VBox(20);
+FlowPane flowPane = new FlowPane();
+GridPane gridPane = new GridPane();
+HBox hbNome = new HBox(10); 
+StackPane painelEmpilhador = new StackPane();
+
+ToggleButton tbLinux = new ToggleButton("Linux");
+final ToggleGroup tgSo = new ToggleGroup(); 
+tgSo.getToggles().addAll(tbLinux, tbWindows, tbMac); 
+
+RadioButton rbJava = new RadioButton("Java");
+
+final CheckBox chkGosto = new CheckBox("Gosta de programação?");
+
+Button botao = new Button("Clique em mim!");
+
+botao.setOnAction(this);
+
+if(evento.getSource().equals(botao)){
+   System.out.println("Faça algo pelo botão");
+}
+
+Label label = new Label("Meu label");
+
+label.setTooltip(new Tooltip("Tooltip para o label")); 
+
+TextField campoTexto = new TextField("Digite algo"); 
+
+String entrada_texto = campoTexto.getText();
+
+TextArea areaTexto = new TextArea("Digite algo com várias linhas"); 
+
+Separator separadorHorizontal = new Separator(); 
+Separator separadorVertical = new Separator(Orientation.VERTICAL);
+ 
+raiz.getChildren().add(label);
+raiz.getChildren().addAll(label,campoTexto);
+
+palco.getIcons().add(new Image(getClass().getResourceAsStream("/media/icone.jpg")));
+
+Scene cena = new Scene(raiz, largura, altura);
+palco.setTitle("Prova 3");
+Adicionamos a cena no palco
+palco.setScene(cena);
+palco.show();
